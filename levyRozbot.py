@@ -28,7 +28,7 @@ subreddit = reddit.subreddit(target_sub)
   
 # check every comment in the subreddit except mine
 me = reddit.user.me()
-for comment in subreddit.stream.comments():
+for comment in subreddit.stream.comments(skip_existing=True):
   
     # check the trigger_phrase in each comment
     if (("1660" in comment.body) or ("like a potato" in comment.body)) and comment.author != me:
