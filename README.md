@@ -1,4 +1,4 @@
-A simple bot written in Python3 that uses the PRAM library. Responds to certain key phrases from comments submitted in the r/AnarchyChess subreddit, and spams lyrics from a highly amusing video created by IM (International Chess Master) Levy Rozman on his Youtube channel, as a reply.
+A simple bot written in Python3 (https://www.python.org/) that uses the PRAW module (https://praw.readthedocs.io/en/stable/index.html). Responds to certain key phrases from comments submitted in the r/AnarchyChess subreddit, and spams lyrics from a highly amusing video created by IM (International Chess Master) Levy Rozman on his Youtube channel, as a reply, with love. (https://youtu.be/7MRNWxCuIrI)
 
 Inspired by u/FMHall's bot, u/PetrosianBot. That bot brought a lot of joy to the subreddit, so I figured why not add to the fun? Code was not derived from that Redditor's bot. The two are developed separately.
 
