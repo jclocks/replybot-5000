@@ -41,7 +41,7 @@ Like when I see the queen come here this is the first thing I think of.
 
 _Damn. Damn. Damn damn damn. Well at least this dude has potato in his name because he_... played like a potato. He played like a potato.
 
-^(Beep boop. Made using Debian and PRAW)"""
+^Beep boop. | [Source](https://github.com/jclocks/levy-rozbot) | [Issues? Suggestions?](https://github.com/jclocks/levy-rozbot/issues)"""
           
         # Shitpost.
         comment.reply(reply_text)
