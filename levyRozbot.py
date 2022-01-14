@@ -1,28 +1,27 @@
 #!/usr/bin/python3
 
 # Modules
-import praw, datetime, configparser
-
-# WIP: Read config file for credentials.
-config = configparser.ConfigParser()
-config.read('login.ini')
+import praw
+import datetime
 
 # Prompt for credentials.
-client_id = config['login']['client_id']
-client_secret = config['login']['client_secret']
-username = config['login']['username']
-password = config['login']['password']
-user_agent = config['login']['user_agent']
+print("Client ID: ", end="")
+client_id = input()
+print("Client Secret: ", end="")
+client_secret = input()
+print("Username: ", end="")
+username = input()
+print("Password: ", end="")
+password = input()
+print("User Agent: ", end="")
+user_agent = input()
   
 # Creating an authorized reddit instance.
 reddit = praw.Reddit(client_id = client_id, client_secret = client_secret, username = username, password = password, user_agent = user_agent) 
   
 # The subreddit to monitor.
-target_sub = "testingground4bots"
+target_sub = "anarchychess"
 subreddit = reddit.subreddit(target_sub)
-
-# Let the user know you're up.
-print("Monitoring " + target_sub + "...")
   
 # Phrases that trigger the bot.
 trigger_list = ['1660', 'on move 6', 'trapped queen', 'trapped the man\'s queen', 'trap the man\'s queen', 'like a potato']
@@ -42,7 +41,7 @@ Like when I see the queen come here this is the first thing I think of.
 
 _Damn. Damn. Damn damn damn. Well at least this dude has potato in his name because he_... played like a potato. He played like a potato.
 
-^Beep boop. | [Source](https://github.com/jclocks/levy-rozbot) | [Issues? Suggestions?](https://github.com/jclocks/levy-rozbot/issues) | [Video](https://www.youtube.com/watch?v=7MRNWxCuIrI)"""
+^Beep boop. | [Source](https://github.com/jclocks/levy-rozbot) | [Issues? Suggestions?](https://github.com/jclocks/levy-rozbot/issues)"""
           
         # Shitpost.
         comment.reply(reply_text)
