@@ -13,17 +13,12 @@ while True:
         config = configparser.ConfigParser()
         config.read('login.ini')
 
-        # Prompt for credentials.
-        client_id = config['login']['client_id']
-        client_secret = config['login']['client_secret']
-        username = config['login']['username']
-        password = config['login']['password']
-        user_agent = config['login']['user_agent']
-
         # Creating an authorized Reddit instance.
-        reddit = praw.Reddit(client_id=client_id, client_secret=client_secret,
-                             username=username, password=password,
-                             user_agent=user_agent)
+        reddit = praw.Reddit(client_id=config['login']['client_id'],
+                             client_secret=config['login']['client_secret'],
+                             username=config['login']['username'],
+                             password=config['login']['password'],
+                             user_agent=config['login']['user_agent'])
 
         # The subreddit to monitor.
         target_sub = "testingground4bots"
