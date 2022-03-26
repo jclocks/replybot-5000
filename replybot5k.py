@@ -1,9 +1,18 @@
 #!/usr/bin/python3
+"""
+Replybot-5000: Reddit bot script that replies to comments submitted on
+specified subreddits.
+
+Author: jclocks @ github.com
+Version: TBD
+"""
 
 # Modules
-import praw
 import datetime
+import time
 import configparser
+import praw
+import prawcore
 
 # Error handling loop
 while True:
@@ -21,11 +30,11 @@ while True:
                              user_agent=config['login']['user_agent'])
 
         # The subreddit to monitor.
-        target_sub = "testingground4bots"
-        subreddit = reddit.subreddit(target_sub)
+        TARGET_SUB = "testingground4bots"
+        subreddit = reddit.subreddit(TARGET_SUB)
 
         # Let the user know you're up.
-        print("Monitoring " + target_sub + "...")
+        print("Monitoring " + TARGET_SUB + "...")
 
         # Phrases that trigger the bot.
         trigger_list = ['foo', 'bar']
@@ -35,14 +44,13 @@ while True:
         for comment in subreddit.stream.comments(skip_existing=True):
 
             # Check the trigger_phrase in each comment
-            if [ele for ele in trigger_list if(ele in comment.body.lower())]
-            and comment.author != me:
+            if [el for el in trigger_list if el in comment.body.lower()] and comment.author != me:
 
                 # initialize the reply text
-                reply_text = 'Reply text goes here.'
+                REPLY_TEXT = 'Reply text goes here.'
 
                 # Perform comment and log to stdout.
-                comment.reply(reply_text)
+                comment.reply(REPLY_TEXT)
                 print(str(datetime.datetime.now()) + ": Replied to comment "
                       + str(comment.id) + " by " + str(comment.author))
 
