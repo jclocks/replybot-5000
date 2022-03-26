@@ -11,8 +11,11 @@ Version: TBD
 import datetime
 import time
 import configparser
+import os
 import praw
 import prawcore
+
+CONFIG_FILE = 'login.ini'
 
 # Error handling loop
 while True:
@@ -20,7 +23,14 @@ while True:
 
         # Read config file for credentials.
         config = configparser.ConfigParser()
-        config.read('login.ini')
+        if not os.path.exists(CONFIG_FILE):
+            input("""
+The configuration file has not been generated. Taking you to your preferred
+editor to fill this out. Press Enter to continue...
+""")
+            os.system("cp blank-login.ini login.ini ; $EDITOR login.ini")
+
+        config.read(CONFIG_FILE)
 
         # Creating an authorized Reddit instance.
         reddit = praw.Reddit(client_id=config['login']['client_id'],
@@ -54,6 +64,8 @@ while True:
                 print(str(datetime.datetime.now()) + ": Replied to comment "
                       + str(comment.id) + " by " + str(comment.author))
 
+    # In the event an exception occurs, we want the application to reload.
+    # See https://github.com/jclocks/replybot-5000/issues/1
     except prawcore.exceptions.ResponseException:
         time.sleep(10)
         continue
